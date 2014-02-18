@@ -1,0 +1,14 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+PROJECT(WeNeedMetal CXX)
+
+SET(CMAKE_CXX_COMPILER clang++)
+SET(CMAKE_CXX_FLAGS "-std=c++11 -W -Wall")
+
+ADD_SUBDIRECTORY(./libs/glfw)
+INCLUDE_DIRECTORIES(./libs/glfw/include)
+
+INCLUDE_DIRECTORIES(./include/)
+ADD_EXECUTABLE(weneedmetal src/cl.cpp)
+
+TARGET_LINK_LIBRARIES(weneedmetal glfw ${GLFW_LIBRARIES})
