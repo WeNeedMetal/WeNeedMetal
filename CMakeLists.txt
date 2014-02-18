@@ -5,6 +5,7 @@ PROJECT(WeNeedMetal CXX)
 SET(CMAKE_CXX_COMPILER clang++)
 SET(CMAKE_CXX_FLAGS "-std=c++11 -W -Wall")
 
+SET(GLFW_BUILD_DOCS OFF)
 ADD_SUBDIRECTORY(./libs/glfw)
 INCLUDE_DIRECTORIES(./libs/glfw/include)
 
