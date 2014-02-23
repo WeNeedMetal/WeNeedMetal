@@ -10,6 +10,9 @@ ADD_SUBDIRECTORY(./libs/glfw)
 INCLUDE_DIRECTORIES(./libs/glfw/include)
 
 INCLUDE_DIRECTORIES(./include/)
-ADD_EXECUTABLE(weneedmetal src/cl.cpp)
 
+ADD_SUBDIRECTORY(src)
+
+ADD_EXECUTABLE(weneedmetal src/client.cpp)
+TARGET_LINK_LIBRARIES(weneedmetal cl)
 TARGET_LINK_LIBRARIES(weneedmetal glfw ${GLFW_LIBRARIES})
