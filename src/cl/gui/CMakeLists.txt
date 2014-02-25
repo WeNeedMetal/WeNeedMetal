@@ -1,2 +1,2 @@
-ADD_LIBRARY(gui controll.cpp)
+ADD_LIBRARY(gui STATIC controll.cpp)
 

@@ -2,19 +2,24 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 PROJECT(WeNeedMetal CXX)
 
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY bin)
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY bin)
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 
 SET(CMAKE_CXX_COMPILER clang++)
 SET(CMAKE_CXX_FLAGS "-std=c++11 -W -Wall")
 
-SET(GLFW_BUILD_DOCS OFF)
-ADD_SUBDIRECTORY(./libs/glfw)
-INCLUDE_DIRECTORIES(./libs/glfw/include)
+ADD_SUBDIRECTORY(./libs)
 
 INCLUDE_DIRECTORIES(./include/)
 
-ADD_SUBDIRECTORY(src)
+SET(SRC_CL
+    src/cl/cl.cpp
+    src/cl/screen.cpp
+    src/cl/settings.cpp
+    src/cl/gui/controll.cpp
+)
 
-ADD_EXECUTABLE(weneedmetal src/client.cpp)
-TARGET_LINK_LIBRARIES(weneedmetal cl)
-TARGET_LINK_LIBRARIES(weneedmetal glfw ${GLFW_LIBRARIES})
+ADD_EXECUTABLE(weneedmetal src/client.cpp ${SRC_CL})
+
+TARGET_LINK_LIBRARIES(weneedmetal glfw)
