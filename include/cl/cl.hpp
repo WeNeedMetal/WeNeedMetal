@@ -2,6 +2,7 @@
 #define __HPP_CL_CL__
 
 #include "settings.hpp"
+#include "screen.hpp"
 
 namespace wnm { namespace cl
 {
@@ -9,6 +10,7 @@ namespace wnm { namespace cl
     {
     private:
         Settings settings;
+        Screen screen;
 
     public:
         Client();

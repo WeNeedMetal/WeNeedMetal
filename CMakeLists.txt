@@ -17,7 +17,8 @@ SET(SRC_CL
     src/cl/cl.cpp
     src/cl/screen.cpp
     src/cl/settings.cpp
-    src/cl/gui/controll.cpp
+    src/cl/gui/base.cpp
+    src/cl/gui/game.cpp
 )
 
 ADD_EXECUTABLE(weneedmetal src/client.cpp ${SRC_CL})

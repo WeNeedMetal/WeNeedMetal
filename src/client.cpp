@@ -1,4 +1,6 @@
+#include <iostream>
 #include <GLFW/glfw3.h>
+
 
 int main()
 {
@@ -6,6 +8,11 @@ int main()
 
 	if(!glfwInit())
 		return -1;
+
+
+    const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    
+    std::cout << "Monitor size: " << mode->width << 'x' << mode->height << std::endl;
 
 	window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
 

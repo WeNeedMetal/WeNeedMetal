@@ -3,6 +3,7 @@
 namespace cl = wnm::cl;
 
 cl::Settings::Settings()
+    :resolution({640, 480}) 
 {
-    this->resolution = {640, 480};
+    
 }
