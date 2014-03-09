@@ -3,6 +3,8 @@
 
 #include<cmath>
 
+using namespace std;
+
 namespace wnm {
     
     struct Vector3 {
@@ -41,12 +43,13 @@ namespace wnm {
         
         const double Length() const
         {
-            return std::sqrt(LengthSq());
+            return sqrt(LengthSq());
         }
         
         const double LengthSq() const
         {
             return x*x + y*y;
+        
         }
         
         Vector2 operator+(const Vector2 &value) const
