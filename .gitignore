@@ -40,6 +40,8 @@ install_manifest.txt
 *.suo
 *.user
 *.sln.docstates
+*.vcxproj
+*.vcxproj.filters
 
 # Build results
 [Dd]ebug/
@@ -219,5 +221,4 @@ Desktop.ini
 $RECYCLE.BIN/
 
 
-#add output
-/weneedmetal
+config.h

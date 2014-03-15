@@ -8,6 +8,8 @@ namespace wnm { namespace cl
     
     struct Resolution
     {
+		Resolution(int X, int Y)
+			:X(X), Y(Y) { }
         int X, Y;
     };
 

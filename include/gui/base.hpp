@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_CL_GUI_BASE__
-#define __HPP_WNM_CL_GUI_BASE__
+#ifndef __HPP_WNM_GUI_BASE__
+#define __HPP_WNM_GUI_BASE__
 
 #include <iostream>
 
