@@ -36,10 +36,12 @@ SOURCE_GROUP("include\\gui" FILES ${HEADER_GUI})
 FILE(GLOB HEADER_STRUCTS RELATIVE ${PROJECT_SOURCE_DIR} include/structs/*.cpp)
 SOURCE_GROUP("include\\structs" FILES ${HEADER_STRUCTS})
 
+SOURCE_GROUP("include" config.h)
+
 FILE(GLOB SRC RELATIVE ${PROJECT_SOURCE_DIR} src/*.cpp)
 SOURCE_GROUP("src" FILES ${SRC})
 
-ADD_EXECUTABLE(weneedmetal src/client.cpp ${SRC_CL} ${HEADER_CL} ${SRC_GUI} ${HEADER_GUI})
-ADD_EXECUTABLE(weneedmetal_server src/server.cpp )
+ADD_EXECUTABLE(weneedmetal src/client.cpp config.h ${SRC_CL} ${HEADER_CL} ${SRC_GUI} ${HEADER_GUI})
+ADD_EXECUTABLE(weneedmetal_server src/server.cpp config.h)
 
 TARGET_LINK_LIBRARIES(weneedmetal glfw ${GLFW_LIBRARIES})
