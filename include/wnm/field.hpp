@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_WNM_FIELD__
-#define __HPP_WNM_WNM_FIELD__
+#ifndef _HPP_WNM_WNM_FIELD_
+#define _HPP_WNM_WNM_FIELD_
 
 #include <boost/multi_array.hpp>
 

@@ -1,5 +1,5 @@
-#ifndef __HPP_CL_CL__
-#define __HPP_CL_CL__
+#ifndef _HPP_CL_CL_
+#define _HPP_CL_CL_
 
 #include "settings.hpp"
 #include "screen.hpp"

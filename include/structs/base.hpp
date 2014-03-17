@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_STRUCTS__
-#define __HPP_WNM_STRUCTS__
+#ifndef _HPP_WNM_STRUCTS_
+#define _HPP_WNM_STRUCTS_
 
 #include "vector.hpp"
 

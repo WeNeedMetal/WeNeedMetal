@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_GUI_GAME__
-#define __HPP_WNM_GUI_GAME__
+#ifndef _HPP_WNM_GUI_GAME_
+#define _HPP_WNM_GUI_GAME_
 
 #include "base.hpp"
 

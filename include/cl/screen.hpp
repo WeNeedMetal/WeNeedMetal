@@ -1,5 +1,5 @@
-#ifndef __HPP_CL_SCREEN__
-#define __HPP_CL_SCREEN__
+#ifndef _HPP_CL_SCREEN_
+#define _HPP_CL_SCREEN_
 
 #include <GLFW/glfw3.h>
 #include <iostream>

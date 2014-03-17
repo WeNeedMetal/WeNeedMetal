@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_VECTOR__
-#define __HPP_WNM_VECTOR__
+#ifndef _HPP_WNM_VECTOR_
+#define _HPP_WNM_VECTOR_
 
 #include<cmath>
 

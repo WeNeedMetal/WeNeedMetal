@@ -1,5 +1,5 @@
-#ifndef __HPP_WNM_CL_SETTINGS__
-#define __HPP_WNM_CL_SETTINGS__
+#ifndef _HPP_WNM_CL_SETTINGS_
+#define _HPP_WNM_CL_SETTINGS_
 
 #include <iostream>
 
