@@ -1,6 +1,6 @@
 #include "cl/screen.hpp"
 
-namespace cl = wnm::cl;
+namespace cl = WeNeedMetal::cl;
 
 cl::Screen::Screen()
 {

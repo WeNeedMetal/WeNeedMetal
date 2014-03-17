@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace wnm { namespace cl
+namespace WeNeedMetal { namespace cl
 {
     
     struct Resolution

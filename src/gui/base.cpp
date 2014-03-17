@@ -1,6 +1,6 @@
-#include "include/gui/base.hpp"
+#include "gui/base.hpp"
 
-namespace gui = wnm::cl::gui;
+namespace gui = WeNeedMetal::gui;
 
 void gui::Controll::setParent(Controll* ctrl)
 {

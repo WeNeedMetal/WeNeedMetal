@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace wnm { namespace cl { namespace gui
+namespace WeNeedMetal { namespace gui
 {
 
     class Controll
@@ -18,6 +18,6 @@ namespace wnm { namespace cl { namespace gui
         Controll* m_parent;
     };
 
-}}}
+}}
 
 #endif

@@ -1,6 +1,6 @@
-#include "cl/gui/game.hpp"
+#include "gui/game.hpp"
 
-namespace gui = wnm::cl::gui;
+namespace gui = WeNeedMetal::gui;
 
 gui::GameControll::GameControll()
 {

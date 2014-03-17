@@ -4,7 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-namespace wnm { namespace cl {
+namespace WeNeedMetal { namespace cl {
     class Screen
     {
     private:

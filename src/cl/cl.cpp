@@ -1,6 +1,6 @@
-#include "include/cl/cl.hpp"
+#include "cl/cl.hpp"
 
-namespace cl = wnm::cl;
+namespace cl = WeNeedMetal::cl;
 
 cl::Client::Client()
 {

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace wnm {
+namespace WeNeedMetal {
     
     struct Vector3 {
     
@@ -13,7 +13,7 @@ namespace wnm {
         double x, y, z;
         
         Vector3(double x = 0.0, double y = 0.0, double z = 0.0) 
-        : x(x), y(y), z(z) { }
+			: x(x), y(y), z(z) { }
         
         const double Dot(const Vector3 &vec) const
         {
@@ -73,6 +73,15 @@ namespace wnm {
                 y * value);
         }
     };
+
+	struct Vector3i
+	{
+	public:
+		int x, y, z;
+		Vector3i(int x = 0, int y = 0, int z = 0)
+			: x(x), y(y), z(z) { }
+
+	};
 }
 
 #endif

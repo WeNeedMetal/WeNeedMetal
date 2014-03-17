@@ -4,7 +4,7 @@
 #include "settings.hpp"
 #include "screen.hpp"
 
-namespace wnm { namespace cl
+namespace WeNeedMetal { namespace cl
 {
     class Client
     {

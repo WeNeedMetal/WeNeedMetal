@@ -1,6 +1,6 @@
 #include "cl/settings.hpp"
 
-namespace cl = wnm::cl;
+namespace cl = WeNeedMetal::cl;
 
 cl::Settings::Settings()
 	:resolution(Resolution(640, 480)) 

@@ -3,13 +3,13 @@
 
 #include "base.hpp"
 
-namespace wnm { namespace cl { namespace gui
+namespace WeNeedMetal { namespace gui
 {
     class GameControll : Controll
     {
         public:
             GameControll();
     };
-}}}
+}}
 
 #endif
