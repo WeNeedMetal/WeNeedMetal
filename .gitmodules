@@ -1,0 +1,3 @@
+[submodule "libs/oglplus"]
+	path = libs/oglplus
+	url = https://github.com/matus-chochlik/oglplus.git
