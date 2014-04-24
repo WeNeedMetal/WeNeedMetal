@@ -10,11 +10,13 @@ namespace WeNeedMetal { namespace cl
     {
     private:
         Settings settings;
-        Screen screen;
+		shared_ptr<Screen> screen;
 
     public:
         Client();
-        void run();
+		~Client();
+
+		void InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos);
     };
 }}
 

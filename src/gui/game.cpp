@@ -1,8 +1,15 @@
 #include "gui/game.hpp"
 
-namespace gui = WeNeedMetal::gui;
+using namespace WeNeedMetal::gui;
 
-gui::GameControll::GameControll()
-{
+GameControll::GameControll() {
     //pass
-}
+};
+
+void GameControll::MouseMove(Vector2 pos) {
+
+};
+
+void GameControll::Rendering() {
+
+};

@@ -1,13 +1,23 @@
 #include "cl/cl.hpp"
 
-namespace cl = WeNeedMetal::cl;
+using namespace WeNeedMetal::cl;
 
-cl::Client::Client()
+Client::Client()
+{
+	if(!glfwInit())
+		throw new exception();
+
+	screen = make_shared<Screen>();
+	screen->Run();
+}
+
+Client::~Client()
+{
+	glfwTerminate();
+}
+
+void Screen::InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos)
 {
 
 }
 
-void cl::Client::run()
-{
-
-}

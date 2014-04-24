@@ -1,13 +1,13 @@
 #include "gui/base.hpp"
 
-namespace gui = WeNeedMetal::gui;
+using namespace WeNeedMetal::gui;
 
-void gui::Controll::setParent(Controll* ctrl)
+void Controll::setParent(Controll* ctrl)
 {
     m_parent = ctrl;
 }
 
-gui::Controll* gui::Controll::getParent()
+Controll* Controll::getParent()
 {
     return m_parent;
 }

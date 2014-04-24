@@ -3,19 +3,22 @@
 
 #include <iostream>
 
+#include <structs/vector.hpp>
+
 namespace WeNeedMetal { namespace gui
 {
 
     class Controll
     {
 
-    protected:
+	public:
         
         void setParent(Controll* ctrl);
         Controll* getParent();
-        
-        
         Controll* m_parent;
+
+		virtual void MouseMove(Vector2 pos) = 0;
+		virtual void Rendering() = 0;
     };
 
 }}

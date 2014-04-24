@@ -1,21 +1,43 @@
 #include "cl/screen.hpp"
 
-namespace cl = WeNeedMetal::cl;
+using namespace WeNeedMetal::cl;
 
-cl::Screen::Screen()
+Screen::Screen()
 {
-
-}
-
-int cl::Screen::Init()
-{
+	//ウインドウの作成
     window = glfwCreateWindow(640, 480, "WeNeedMetal", NULL, NULL);
     if (!window)
     {
-        return -1;
+		throw new exception();
     }
+
+	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    
+    std::cout << "Monitor size: " << mode->width << 'x' << mode->height << std::endl;
 
     glfwMakeContextCurrent(window);
 
-    return 0;
+	glfwSetCursorPosCallback(window, [](GLFWwindow* window, double xpos, double ypos){
+		cout << "aaa\n" << endl;
+	});
+
+
+	//GUIの登録
+	controll = make_shared<GameControll>();
+
 }
+
+Screen::~Screen()
+{
+	glfwDestroyWindow(window);
+}
+
+void Screen::Run()
+{
+	while(!glfwWindowShouldClose(window))
+	{
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
+}
+
