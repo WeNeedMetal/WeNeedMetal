@@ -23,7 +23,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
+current_page=4
 FILE_NAME_0=0;C++;0;EUTF-8;1;1;0;D%3A%5Crepository%5Cweneedmetal%5Cinclude%5Cwnm%5Cbase.hpp;0;4
 FILE_NAME_1=0;C++;0;EUTF-8;1;1;0;D%3A%5Crepository%5Cweneedmetal%5Csrc%5Cwnm%5Cbase.cpp;0;4
 FILE_NAME_2=0;C++;0;EUTF-8;1;1;0;D%3A%5Crepository%5Cweneedmetal%5Cinclude%5Cwnm%5Cfield.hpp;0;4
+FILE_NAME_3=663;None;0;ECP932;1;1;0;D%3A%5CSteam%5Csteamapps%5Ccommon%5CPAYDAY%202%5Cjp%5Cjptext_download.bat;0;4
+FILE_NAME_4=394;None;0;ECP932;1;1;0;D%3A%5CSteam%5Csteamapps%5Ccommon%5CPAYDAY%202%5Cjp%5Cpack_jptext.bat;0;4

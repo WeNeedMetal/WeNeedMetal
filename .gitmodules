@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 [submodule "glfw"]
 	path = libs/glfw
 	url = https://github.com/glfw/glfw.git
+=======
+[submodule "libs/oglplus"]
+	path = libs/oglplus
+	url = https://github.com/matus-chochlik/oglplus.git
+>>>>>>> 52f187bda776ee1bc1bb06e9a289ee5d63bf9415
