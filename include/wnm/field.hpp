@@ -8,7 +8,7 @@
 
 namespace WeNeedMetal { namespace wnm {
 	class Field {
-		typedef boost::multi_array<Block, 3> Terrain;
+		typedef boost::multi_array<Block, 2> Terrain;
 
 		Vector3i m_size;
 		Terrain m_terrain;

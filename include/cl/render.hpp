@@ -10,7 +10,7 @@ using namespace std;
 namespace WeNeedMetal { namespace rd {
 
 	class Render {
-		list<weak_ptr<
+
 	};
 }}
 

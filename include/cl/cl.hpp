@@ -1,22 +1,27 @@
 #ifndef _HPP_CL_CL_
 #define _HPP_CL_CL_
 
-#include "settings.hpp"
-#include "screen.hpp"
+#include <vector>
+#include <memory>
 
-namespace WeNeedMetal { namespace cl
-{
+#include "cl/settings.hpp"
+#include "cl/screen.hpp"
+
+using namespace std;
+
+namespace WeNeedMetal { namespace cl {
     class Client
     {
     private:
+		
         Settings settings;
 		shared_ptr<Screen> screen;
 
+		
     public:
         Client();
 		~Client();
 
-		void InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos);
     };
 }}
 
