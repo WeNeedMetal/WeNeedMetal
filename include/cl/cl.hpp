@@ -13,7 +13,6 @@ namespace WeNeedMetal { namespace cl {
     class Client
     {
     private:
-		
         Settings settings;
 		shared_ptr<Screen> screen;
 
