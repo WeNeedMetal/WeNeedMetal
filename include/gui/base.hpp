@@ -17,8 +17,10 @@ namespace WeNeedMetal { namespace gui
         Controll* getParent();
         Controll* m_parent;
 
-		virtual void MouseMove(Vector2 pos) = 0;
-		virtual void Rendering() = 0;
+		virtual void CallbackMouseMove(Vector2 pos);
+		virtual void CallbackMouseEnter();
+		virtual void CallbackMouseLeave() = 0;
+		virtual void Rendering();
     };
 
 }}

@@ -13,13 +13,15 @@
 using namespace WeNeedMetal::gui;
 
 namespace WeNeedMetal { namespace cl {
-    class Screen
-    {
+    class Screen {
     private:
         GLFWwindow* window;
 		unique_ptr<Controll> controll;
 
+		static Controll* CallbackPointer(GLFWwindow* window);
+
 		static void CallbackCursorPos(GLFWwindow* window, double xpos, double ypos);
+		static void CallbackCursorEnter(GLFWwindow* window, int status);
 
     public:
         Screen();

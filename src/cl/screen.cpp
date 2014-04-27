@@ -20,6 +20,7 @@ Screen::Screen()
 	//コールバック登録
 	glfwSetWindowUserPointer(window, this);
 	glfwSetCursorPosCallback(window, CallbackCursorPos);
+	glfwSetCursorEnterCallback(window, CallbackCursorEnter);
 
 	//GUI登録
 	controll = unique_ptr<Controll>(new GameControll());
@@ -41,8 +42,22 @@ void Screen::Run()
 	}
 }
 
-void Screen::CallbackCursorPos(GLFWwindow* window, double xpos, double ypos)
-{
-	auto screen = static_cast<Screen*>(glfwGetWindowUserPointer(window));
-	screen->controll->MouseMove(Vector2(xpos, ypos));
+
+Controll* Screen::CallbackPointer(GLFWwindow* window) {
+	return ((Screen*)glfwGetWindowUserPointer(window))->controll.get();
+}
+
+void Screen::CallbackCursorPos(GLFWwindow* window, double xpos, double ypos) {
+	CallbackPointer(window)->CallbackMouseMove(Vector2(xpos, ypos));
+}
+
+void Screen::CallbackCursorEnter(GLFWwindow* window, int status) {
+	switch (status)	{
+	case GL_TRUE:
+		CallbackPointer(window)->CallbackMouseEnter();
+		break;
+	case GL_FALSE:
+		CallbackPointer(window)->CallbackMouseLeave();
+		break;
+	}
 }

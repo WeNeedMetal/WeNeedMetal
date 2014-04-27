@@ -13,8 +13,11 @@ namespace WeNeedMetal { namespace gui
     public:
         GameControll();
 
-		void MouseMove(Vector2 pos);
-		void Rendering();
+		virtual void CallbackMouseMove(Vector2 pos);
+		virtual void CallbackMouseEnter();
+		virtual void CallbackMouseLeave();
+
+		virtual void Rendering();
     };
 }}
 
