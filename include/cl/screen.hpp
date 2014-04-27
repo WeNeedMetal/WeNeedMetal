@@ -7,6 +7,7 @@
 
 #include <GLFW/glfw3.h>
 
+#include "structs/keyboard.hpp"
 #include "gui/base.hpp"
 #include "gui/game.hpp"
 
@@ -21,7 +22,9 @@ namespace WeNeedMetal { namespace cl {
 		static Controll* CallbackPointer(GLFWwindow* window);
 
 		static void CallbackCursorPos(GLFWwindow* window, double xpos, double ypos);
-		static void CallbackCursorEnter(GLFWwindow* window, int status);
+		static void CallbackCursorEnter(GLFWwindow* window, int entered);
+		static void CallbackKeyEnter(GLFWwindow* window, int key, int scancode, int action, int mods);
+		static void CallbackCharEnter(GLFWwindow* window, unsigned int codepoint);
 
     public:
         Screen();

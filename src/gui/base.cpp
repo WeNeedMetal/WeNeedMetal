@@ -14,6 +14,10 @@ Controll* Controll::getParent() {
 void Controll::CallbackMouseMove(Vector2 pos) { }
 void Controll::CallbackMouseEnter() { }
 void Controll::CallbackMouseLeave() { }
+void Controll::CallbackKeyPress(Keyboard key) { }
+void Controll::CallbackKeyRepeat(Keyboard key) { }
+void Controll::CallbackKeyRelease(Keyboard key) { }
+void Controll::CallbackCharEnter(char c) { }
 
 void Controll::Rendering() { }
 

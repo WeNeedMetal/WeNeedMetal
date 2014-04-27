@@ -7,7 +7,7 @@ GameControll::GameControll() {
 };
 
 void GameControll::CallbackMouseMove(Vector2 pos) {
-	cout << "Mouse:" << pos.x << ',' << pos.y << endl;
+
 };
 
 void GameControll::CallbackMouseEnter() {
@@ -17,6 +17,14 @@ void GameControll::CallbackMouseEnter() {
 void GameControll::CallbackMouseLeave() {
 	cout << "Mouse Leave" << endl;
 };
+
+void GameControll::CallbackKeyPress(Keyboard key) {
+};
+
+
+void GameControll::CallbackCharEnter(char c) {
+	cout << c << endl;
+}
 
 void GameControll::Rendering() {
 

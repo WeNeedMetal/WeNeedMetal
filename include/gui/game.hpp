@@ -16,6 +16,8 @@ namespace WeNeedMetal { namespace gui
 		virtual void CallbackMouseMove(Vector2 pos);
 		virtual void CallbackMouseEnter();
 		virtual void CallbackMouseLeave();
+		virtual void CallbackKeyPress(Keyboard key);
+		virtual void CallbackCharEnter(char c);
 
 		virtual void Rendering();
     };

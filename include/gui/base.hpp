@@ -5,6 +5,8 @@
 
 #include <structs/vector.hpp>
 
+#include "structs/keyboard.hpp"
+
 namespace WeNeedMetal { namespace gui
 {
 
@@ -19,7 +21,12 @@ namespace WeNeedMetal { namespace gui
 
 		virtual void CallbackMouseMove(Vector2 pos);
 		virtual void CallbackMouseEnter();
-		virtual void CallbackMouseLeave() = 0;
+		virtual void CallbackMouseLeave();
+		virtual void CallbackKeyPress(Keyboard key);
+		virtual void CallbackKeyRepeat(Keyboard key);
+		virtual void CallbackKeyRelease(Keyboard key);
+		virtual void CallbackCharEnter(char c);
+
 		virtual void Rendering();
     };
 

@@ -21,6 +21,8 @@ Screen::Screen()
 	glfwSetWindowUserPointer(window, this);
 	glfwSetCursorPosCallback(window, CallbackCursorPos);
 	glfwSetCursorEnterCallback(window, CallbackCursorEnter);
+	glfwSetKeyCallback(window, CallbackKeyEnter);
+	glfwSetCharCallback(window, CallbackCharEnter);
 
 	//GUI登録
 	controll = unique_ptr<Controll>(new GameControll());
@@ -52,12 +54,38 @@ void Screen::CallbackCursorPos(GLFWwindow* window, double xpos, double ypos) {
 }
 
 void Screen::CallbackCursorEnter(GLFWwindow* window, int status) {
+	auto ptr = CallbackPointer(window);
 	switch (status)	{
 	case GL_TRUE:
-		CallbackPointer(window)->CallbackMouseEnter();
+		ptr->CallbackMouseEnter();
 		break;
 	case GL_FALSE:
-		CallbackPointer(window)->CallbackMouseLeave();
+		ptr->CallbackMouseLeave();
 		break;
 	}
 }
+
+//key http://www.glfw.org/docs/latest/group__keys.html
+//scancode maybe not use
+//mods http://www.glfw.org/docs/latest/group__mods.html
+void Screen::CallbackKeyEnter(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	auto ptr = CallbackPointer(window);
+	auto input = Keyboard(key, scancode, mods);
+	switch (action)
+	{
+	case GLFW_PRESS:
+		ptr->CallbackKeyPress(input);
+		break;
+	case GLFW_RELEASE:
+		ptr->CallbackKeyRelease(input);
+		break;
+	case GLFW_REPEAT:
+		ptr->CallbackKeyRepeat(input);
+		break;
+	}
+}
+
+void Screen::CallbackCharEnter(GLFWwindow* window, unsigned int codepoint) {
+	CallbackPointer(window)->CallbackCharEnter((char)codepoint); //need fix
+}
+
