@@ -4,13 +4,11 @@
 #include <iostream>
 #include <memory>
 #include <functional>
-#include <vector>
 
 #include <GLFW/glfw3.h>
 
 #include "gui/base.hpp"
 #include "gui/game.hpp"
-#include "cl/cl.hpp"
 
 using namespace WeNeedMetal::gui;
 
@@ -19,11 +17,9 @@ namespace WeNeedMetal { namespace cl {
     {
     private:
         GLFWwindow* window;
-		shared_ptr<Controll> controll;
+		unique_ptr<Controll> controll;
 
-
-		static vector<unique_ptr<Screen>> screens;
-		static void InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos);
+		static void CallbackCursorPos(GLFWwindow* window, double xpos, double ypos);
 
     public:
         Screen();

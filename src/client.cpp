@@ -1,9 +1,12 @@
-#include <iostream>
-#include <GLFW/glfw3.h>
+#include <memory>
 #include "cl/cl.hpp"
+
+using namespace WeNeedMetal::cl;
 
 int main()
 {
-	WeNeedMetal::cl::Client client;
+	{
+		Client client;
+	} //このカッコはデストラクタを明示的に呼び出すために必要
 	return 0;
 }

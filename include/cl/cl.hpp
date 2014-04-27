@@ -1,7 +1,6 @@
 #ifndef _HPP_CL_CL_
 #define _HPP_CL_CL_
 
-#include <vector>
 #include <memory>
 
 #include "cl/settings.hpp"
@@ -15,7 +14,6 @@ namespace WeNeedMetal { namespace cl {
     private:
         Settings settings;
 		shared_ptr<Screen> screen;
-
 		
     public:
         Client();

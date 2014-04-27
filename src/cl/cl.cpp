@@ -14,10 +14,7 @@ Client::Client()
 Client::~Client()
 {
 	glfwTerminate();
+	cout << "destruct" << endl;
 }
 
-void Screen::InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos)
-{
-
-}
 

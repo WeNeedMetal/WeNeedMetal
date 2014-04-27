@@ -4,34 +4,32 @@ using namespace WeNeedMetal::cl;
 
 Screen::Screen()
 {
-	Screen::screens.push_back(unique_ptr<Screen>(this));
 
-	//ウインドウの作成
+	//繧ｦ繧､繝ｳ繝峨え逕滓��
     window = glfwCreateWindow(640, 480, "WeNeedMetal", NULL, NULL);
-    if (!window)
-    {
-		throw new exception();
-    }
+    if (!window) throw new exception();
 
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
     
-    std::cout << "Monitor size: " << mode->width << ':' << mode->height << std::endl;
+    cout << "Monitor size: " << mode->width << ':' << mode->height << endl;
 
 
 
     glfwMakeContextCurrent(window);
 
-	//glfwSetCursorPosCallback(window, );
+	//繧ｳ繝ｼ繝ｫ繝舌ャ繧ｯ逋ｻ骭ｲ
+	glfwSetWindowUserPointer(window, this);
+	glfwSetCursorPosCallback(window, CallbackCursorPos);
 
-
-	//GUIの登録
-	controll = make_shared<GameControll>();
+	//GUI逋ｻ骭ｲ
+	controll = unique_ptr<Controll>(new GameControll());
 
 }
 
 Screen::~Screen()
 {
 	glfwDestroyWindow(window);
+	cout << "window destruct" << endl;
 }
 
 void Screen::Run()
@@ -43,8 +41,8 @@ void Screen::Run()
 	}
 }
 
-void Screen::InputSetCursorPosCallback(GLFWwindow* window, double xpos, double ypos)
+void Screen::CallbackCursorPos(GLFWwindow* window, double xpos, double ypos)
 {
-
+	auto screen = static_cast<Screen*>(glfwGetWindowUserPointer(window));
+	screen->controll->MouseMove(Vector2(xpos, ypos));
 }
-
