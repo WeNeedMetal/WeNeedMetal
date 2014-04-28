@@ -11,7 +11,7 @@ namespace WeNeedMetal { namespace gui
     class GameControll : public Controll
     {
     public:
-        GameControll();
+		GameControll(Vector2 size);
 
 		
 		virtual void CallbackMouseMove(Vector2 pos);

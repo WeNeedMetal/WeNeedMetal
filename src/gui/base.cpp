@@ -3,12 +3,20 @@
 using namespace WeNeedMetal;
 using namespace WeNeedMetal::gui;
 
-void Controll::setParent(Controll* ctrl) {
-    m_parent = ctrl;
+Controll::Controll(Vector2 size, weak_ptr<Controll> parent)
+	: size(size) , parent(parent)
+{ }
+
+void Controll::SetParent(weak_ptr<Controll> ctrl) {
+    parent = ctrl;
 }
 
-Controll* Controll::getParent() {
-    return m_parent;
+weak_ptr<Controll> Controll::GetParent() {
+    return parent;
+}
+
+bool Controll::IsRoot() {
+	return parent.expired();
 }
 
 void Controll::CallbackMouseMove(Vector2 pos) { }
@@ -22,5 +30,15 @@ void Controll::CallbackMousePress(Mouse mouse) { }
 void Controll::CallbackMouseRelease(Mouse mouse) { }
 void Controll::CallbackWheel(double wheel) { }
 
-void Controll::Rendering() { }
+void Controll::ChangeSize(Vector2 size) {
+	this->size = size;
+}
+
+Vector2 Controll::GetSize() {
+	return size;
+}
+
+void Controll::Rendering() {
+	cout << "Controll::Rendering" << endl;
+}
 

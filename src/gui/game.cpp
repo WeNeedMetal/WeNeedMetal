@@ -2,9 +2,9 @@
 
 using namespace WeNeedMetal::gui;
 
-GameControll::GameControll() {
-    //pass
-}
+GameControll::GameControll(Vector2 size)
+	: Controll(size)
+{ }
 
 void GameControll::CallbackMouseMove(Vector2 pos) {
 
@@ -35,5 +35,13 @@ void GameControll::CallbackWheel(double wheel) {
 }
 
 void GameControll::Rendering() {
+	glBegin(GL_QUADS);
+		glColor3ub(0xFF, 0, 0);
+		glVertex2d(0, 0);
+		glColor3ub(0, 0xFF, 0);
+		glVertex2d(1, 0);
+		glColor3ub(
 
+		
+	glEnd();
 }

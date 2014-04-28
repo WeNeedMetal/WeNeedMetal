@@ -17,9 +17,9 @@ namespace WeNeedMetal { namespace cl {
     class Screen {
     private:
         GLFWwindow* window;
-		unique_ptr<Controll> controll;
+		shared_ptr<Controll> controll;
 
-		static Controll* CallbackPointer(GLFWwindow* window);
+		static shared_ptr<Controll> CallbackPointer(GLFWwindow* window);
 
 		static void CallbackCursorPos(GLFWwindow* window, double xpos, double ypos);
 		static void CallbackCursorEnter(GLFWwindow* window, int entered);
@@ -32,6 +32,8 @@ namespace WeNeedMetal { namespace cl {
         Screen();
 		~Screen();
 		void Run();
+
+		Vector2i GetScreenSize();
     };
 }}
 

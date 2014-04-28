@@ -1,4 +1,5 @@
 #include "cl/screen.hpp"
+#include <gl/GL.h>
 
 using namespace WeNeedMetal::cl;
 
@@ -27,7 +28,7 @@ Screen::Screen()
 	glfwSetScrollCallback(window, CallbackScroll);
 
 	//GUI登録
-	controll = unique_ptr<Controll>(new GameControll());
+	controll = shared_ptr<Controll>(new GameControll(GetScreenSize()));
 
 }
 
@@ -41,14 +42,16 @@ void Screen::Run()
 {
 	while(!glfwWindowShouldClose(window))
 	{
+		controll->Rendering();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+		glLoadIdentity();
 	}
 }
 
 
-Controll* Screen::CallbackPointer(GLFWwindow* window) {
-	return ((Screen*)glfwGetWindowUserPointer(window))->controll.get();
+shared_ptr<Controll> Screen::CallbackPointer(GLFWwindow* window) {
+	return ((Screen*)glfwGetWindowUserPointer(window))->controll;
 }
 
 void Screen::CallbackCursorPos(GLFWwindow* window, double xpos, double ypos) {
@@ -67,9 +70,6 @@ void Screen::CallbackCursorEnter(GLFWwindow* window, int status) {
 	}
 }
 
-//key http://www.glfw.org/docs/latest/group__keys.html
-//scancode maybe not use
-//mods http://www.glfw.org/docs/latest/group__mods.html
 void Screen::CallbackKeyEnter(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	auto ptr = CallbackPointer(window);
 	auto input = Keyboard(key, scancode, mods);
@@ -107,4 +107,10 @@ void Screen::CallbackMouseButton(GLFWwindow* window, int button, int action, int
 
 void Screen::CallbackScroll(GLFWwindow* window, double xoffset, double yoffset) {
 	CallbackPointer(window)->CallbackWheel(yoffset);
+}
+
+Vector2i Screen::GetScreenSize() {
+	int width, height;
+	glfwGetWindowSize(window, &width, &height);
+	return Vector2i(width, height);
 }

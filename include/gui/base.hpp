@@ -2,6 +2,7 @@
 #define _HPP_WNM_GUI_BASE_
 
 #include <iostream>
+#include <memory>
 
 #include <structs/vector.hpp>
 
@@ -12,12 +13,16 @@ namespace WeNeedMetal { namespace gui
 
     class Controll
     {
+	private:
+		Vector2 size;
+        weak_ptr<Controll> parent;
 
 	public:
-        
-        void setParent(Controll* ctrl);
-        Controll* getParent();
-        Controll* m_parent;
+		Controll(Vector2 size, weak_ptr<Controll> parent = weak_ptr<Controll>());
+
+        void SetParent(weak_ptr<Controll> ctrl);
+        weak_ptr<Controll> GetParent();
+		bool IsRoot();
 
 		virtual void CallbackMouseMove(Vector2 pos);
 		virtual void CallbackMouseEnter();
@@ -29,6 +34,9 @@ namespace WeNeedMetal { namespace gui
 		virtual void CallbackMousePress(Mouse mouse);
 		virtual void CallbackMouseRelease(Mouse mouse);
 		virtual void CallbackWheel(double wheel);
+
+		virtual void ChangeSize(Vector2 size);
+		Vector2 GetSize();
 
 		virtual void Rendering();
     };
