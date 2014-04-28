@@ -7,7 +7,7 @@ GameControll::GameControll(Vector2 size)
 { }
 
 void GameControll::CallbackMouseMove(Vector2 pos) {
-
+	mouse = pos;
 }
 
 void GameControll::CallbackMouseEnter() {
@@ -35,13 +35,17 @@ void GameControll::CallbackWheel(double wheel) {
 }
 
 void GameControll::Rendering() {
+	auto size = GetSize();
+	double x = size.x / mouse.x * 2 - 1.0;
+	double y = size.y / mouse.y * 2 - 1.0;
 	glBegin(GL_QUADS);
 		glColor3ub(0xFF, 0, 0);
-		glVertex2d(0, 0);
+		glVertex2d(-1, -1);
 		glColor3ub(0, 0xFF, 0);
-		glVertex2d(1, 0);
-		glColor3ub(
-
-		
+		glVertex2d(x, -1);
+		glColor3ub(0, 0, 0xFF);
+		glVertex2d(x, y);
+		glColor3ub(0, 0, 0);
+		glVertex2d(-1, y);
 	glEnd();
 }

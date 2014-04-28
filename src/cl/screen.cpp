@@ -27,6 +27,8 @@ Screen::Screen()
 	glfwSetMouseButtonCallback(window, CallbackMouseButton);
 	glfwSetScrollCallback(window, CallbackScroll);
 
+	glfwSetWindowSizeCallback(window, CallbackWindowSize);
+
 	//GUI登録
 	controll = shared_ptr<Controll>(new GameControll(GetScreenSize()));
 
@@ -42,6 +44,8 @@ void Screen::Run()
 {
 	while(!glfwWindowShouldClose(window))
 	{
+		auto size = GetScreenSize();
+		glViewport(0, 0, size.x, size.y);
 		controll->Rendering();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -107,6 +111,10 @@ void Screen::CallbackMouseButton(GLFWwindow* window, int button, int action, int
 
 void Screen::CallbackScroll(GLFWwindow* window, double xoffset, double yoffset) {
 	CallbackPointer(window)->CallbackWheel(yoffset);
+}
+
+void Screen::CallbackWindowSize(GLFWwindow* window, int width, int height) {
+	CallbackPointer(window)->ChangeSize(Vector2(width, height));
 }
 
 Vector2i Screen::GetScreenSize() {

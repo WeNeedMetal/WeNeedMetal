@@ -10,6 +10,9 @@ namespace WeNeedMetal { namespace gui
 {
     class GameControll : public Controll
     {
+	private:
+		Vector2 mouse;
+
     public:
 		GameControll(Vector2 size);
 

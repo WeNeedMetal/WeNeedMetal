@@ -7,7 +7,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include "structs/keyboard.hpp"
+#include "structs/base.hpp"
 #include "gui/base.hpp"
 #include "gui/game.hpp"
 
@@ -27,6 +27,8 @@ namespace WeNeedMetal { namespace cl {
 		static void CallbackCharEnter(GLFWwindow* window, unsigned int codepoint);
 		static void CallbackMouseButton(GLFWwindow* window, int button, int action, int mods);
 		static void CallbackScroll(GLFWwindow* window, double xoffset, double yoffset);
+
+		static void CallbackWindowSize(GLFWwindow* window, int width, int height);
 
     public:
         Screen();

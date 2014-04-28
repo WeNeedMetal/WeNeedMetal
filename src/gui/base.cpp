@@ -32,13 +32,12 @@ void Controll::CallbackWheel(double wheel) { }
 
 void Controll::ChangeSize(Vector2 size) {
 	this->size = size;
+	cout << size.x << ',' << size.y << endl;
 }
 
 Vector2 Controll::GetSize() {
 	return size;
 }
 
-void Controll::Rendering() {
-	cout << "Controll::Rendering" << endl;
-}
+void Controll::Rendering() { }
 
