@@ -3,5 +3,6 @@
 
 #include "vector.hpp"
 #include "keyboard.hpp"
+#include "mouse.hpp"
 
 #endif

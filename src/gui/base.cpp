@@ -18,6 +18,9 @@ void Controll::CallbackKeyPress(Keyboard key) { }
 void Controll::CallbackKeyRepeat(Keyboard key) { }
 void Controll::CallbackKeyRelease(Keyboard key) { }
 void Controll::CallbackCharEnter(char c) { }
+void Controll::CallbackMousePress(Mouse mouse) { }
+void Controll::CallbackMouseRelease(Mouse mouse) { }
+void Controll::CallbackWheel(double wheel) { }
 
 void Controll::Rendering() { }
 

@@ -25,6 +25,8 @@ namespace WeNeedMetal { namespace cl {
 		static void CallbackCursorEnter(GLFWwindow* window, int entered);
 		static void CallbackKeyEnter(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void CallbackCharEnter(GLFWwindow* window, unsigned int codepoint);
+		static void CallbackMouseButton(GLFWwindow* window, int button, int action, int mods);
+		static void CallbackScroll(GLFWwindow* window, double xoffset, double yoffset);
 
     public:
         Screen();

@@ -23,6 +23,8 @@ Screen::Screen()
 	glfwSetCursorEnterCallback(window, CallbackCursorEnter);
 	glfwSetKeyCallback(window, CallbackKeyEnter);
 	glfwSetCharCallback(window, CallbackCharEnter);
+	glfwSetMouseButtonCallback(window, CallbackMouseButton);
+	glfwSetScrollCallback(window, CallbackScroll);
 
 	//GUI登録
 	controll = unique_ptr<Controll>(new GameControll());
@@ -86,6 +88,23 @@ void Screen::CallbackKeyEnter(GLFWwindow* window, int key, int scancode, int act
 }
 
 void Screen::CallbackCharEnter(GLFWwindow* window, unsigned int codepoint) {
-	CallbackPointer(window)->CallbackCharEnter((char)codepoint); //need fix
+	CallbackPointer(window)->CallbackCharEnter((char)codepoint); //needfix "not asscii" bug
 }
 
+void Screen::CallbackMouseButton(GLFWwindow* window, int button, int action, int mods) {
+	auto ptr = CallbackPointer(window);
+	auto mouse = Mouse(button, mods);
+	switch (action)
+	{
+	case GLFW_PRESS:
+		ptr->CallbackMousePress(mouse);
+		break;
+	case GLFW_RELEASE:
+		ptr->CallbackMouseRelease(mouse);
+		break;
+	}
+}
+
+void Screen::CallbackScroll(GLFWwindow* window, double xoffset, double yoffset) {
+	CallbackPointer(window)->CallbackWheel(yoffset);
+}

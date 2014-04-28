@@ -3,6 +3,8 @@
 
 #include <GLFW/glfw3.h>
 
+#include "keymods.hpp"
+
 namespace WeNeedMetal {
 	struct Keyboard {
 	private:
@@ -137,13 +139,6 @@ namespace WeNeedMetal {
 			Last = GLFW_KEY_LAST
 		};
 
-		enum Mod {
-			Shift = GLFW_MOD_SHIFT,
-			Ctrl = GLFW_MOD_CONTROL,
-			Alt = GLFW_MOD_ALT,
-			Super = GLFW_MOD_SUPER
-		};
-
 		Key GetKey() {
 			return (Key)key;
 		}
@@ -152,8 +147,8 @@ namespace WeNeedMetal {
 			return scancode;
 		}
 
-		bool IsMod(Mod mod) {
-			return mod || mods;
+		bool IsMod(KeyMods mod) {
+			return mod && mods;
 		}
 
 	};
