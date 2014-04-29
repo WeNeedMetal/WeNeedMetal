@@ -36,16 +36,14 @@ void GameControll::CallbackWheel(double wheel) {
 
 void GameControll::Rendering() {
 	auto size = GetSize();
-	double x = size.x / mouse.x * 2 - 1.0;
-	double y = size.y / mouse.y * 2 - 1.0;
 	glBegin(GL_QUADS);
 		glColor3ub(0xFF, 0, 0);
-		glVertex2d(-1, -1);
+		glVertex2d(0, size.y);
 		glColor3ub(0, 0xFF, 0);
-		glVertex2d(x, -1);
+		glVertex2d(size.x, size.y);
 		glColor3ub(0, 0, 0xFF);
-		glVertex2d(x, y);
-		glColor3ub(0, 0, 0);
-		glVertex2d(-1, y);
+		glVertex2d(size.x, 0);
+		glColor3ub(0xFF, 0xFF, 0xFF);
+		glVertex2d(0, 0);
 	glEnd();
 }

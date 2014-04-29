@@ -44,12 +44,11 @@ void Screen::Run()
 {
 	while(!glfwWindowShouldClose(window))
 	{
-		auto size = GetScreenSize();
-		glViewport(0, 0, size.x, size.y);
+		auto size =	GetScreenSize();
 		controll->Rendering();
 		glfwSwapBuffers(window);
 		glfwPollEvents();
-		glLoadIdentity();
+		GL::LoadIdentity();
 	}
 }
 
@@ -114,7 +113,12 @@ void Screen::CallbackScroll(GLFWwindow* window, double xoffset, double yoffset) 
 }
 
 void Screen::CallbackWindowSize(GLFWwindow* window, int width, int height) {
-	CallbackPointer(window)->ChangeSize(Vector2(width, height));
+	shared_ptr<Screen> sptr(glfwGetWindowUserPointer(window));
+	auto ptr = sptr->controll;
+	sptr->matrix = Matrix4::FromTranslate(-1.0, 1.0, 0.0) * Matrix4::FromScale(2.0 / width, -2.0 / height, 1.0);
+	GL::Viewport(0, 0, width, height);
+	ptr->ChangeSize(Vector2(width, height));
+
 }
 
 Vector2i Screen::GetScreenSize() {

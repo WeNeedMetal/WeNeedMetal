@@ -18,6 +18,7 @@ namespace WeNeedMetal { namespace cl {
     private:
         GLFWwindow* window;
 		shared_ptr<Controll> controll;
+		Matrix4 matrix;
 
 		static shared_ptr<Controll> CallbackPointer(GLFWwindow* window);
 

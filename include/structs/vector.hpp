@@ -65,7 +65,7 @@ namespace WeNeedMetal {
     struct vec3 {
     
     public:
-        double x, y, z;
+        T x, y, z;
         
         vec3<T>(T x = T(), T y = T(), T z = T()) 
 			: x(x), y(y), z(z) { }
