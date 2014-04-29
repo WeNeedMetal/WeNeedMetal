@@ -1,7 +1,7 @@
 #ifndef _HPP_WNM_GLH_
 #define _HPP_WNM_GLH_
 
-#include <gl/GL.h>
+#include <GL/gl.h>
 
 #include "matrix.hpp"
 

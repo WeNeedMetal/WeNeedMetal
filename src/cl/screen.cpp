@@ -113,9 +113,7 @@ void Screen::CallbackScroll(GLFWwindow* window, double xoffset, double yoffset) 
 }
 
 void Screen::CallbackWindowSize(GLFWwindow* window, int width, int height) {
-	shared_ptr<Screen> sptr(glfwGetWindowUserPointer(window));
-	auto ptr = sptr->controll;
-	sptr->matrix = Matrix4::FromTranslate(-1.0, 1.0, 0.0) * Matrix4::FromScale(2.0 / width, -2.0 / height, 1.0);
+	auto ptr = CallbackPointer(window);
 	GL::Viewport(0, 0, width, height);
 	ptr->ChangeSize(Vector2(width, height));
 

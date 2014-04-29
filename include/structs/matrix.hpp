@@ -11,20 +11,18 @@ namespace WeNeedMetal {
     struct mat4
     {
 	typedef array<T, 16> Value;
-	//need fix?
 	private:
-		const static mat4<T> ident(Value({1, 0, 0, 0,
-									      0, 1, 0, 0,
-										  0, 0, 1, 0,
-										  0, 0, 0, 1}));
 		Value value;
     public:
-        mat4(Value value)
+        mat4<T>(Value value)
             : value(value)
         { }
 
-        mat4()
-			: value(ident)
+        mat4<T>()
+			: value({1, 0, 0, 0,
+					 0, 1, 0, 0,
+					 0, 0, 1, 0,
+					 0, 0, 0, 1})
         { }
 
 		T Set(int x, int y, T n) {
@@ -36,7 +34,7 @@ namespace WeNeedMetal {
 		}
 
 		T* Ptr() {
-			value.front();
+			return value.begin();
 		}
 
 		mat4<T> operator+(mat4<T> right) {
@@ -46,10 +44,10 @@ namespace WeNeedMetal {
 		}
 
 		mat4<T> operator*(mat4<T> right) {
-			mat4<T> result();
+			mat4<T> result;
 			for(int y=0;y<4;y++)
 				for(int x =0;x<4;x++) {
-					T n();
+					T n;
 					for(int w=0;w<4;w++)
 						n += Get(w, y) * right.Get(x, w);
 					result.Set(x, y, n);

@@ -16,6 +16,7 @@ namespace WeNeedMetal { namespace gui
 	private:
 		Vector2 size;
         weak_ptr<Controll> parent;
+		Matirx4 position, desition;
 
 	public:
 		Controll(Vector2 size, weak_ptr<Controll> parent = weak_ptr<Controll>());
@@ -23,6 +24,9 @@ namespace WeNeedMetal { namespace gui
         void SetParent(weak_ptr<Controll> ctrl);
         weak_ptr<Controll> GetParent();
 		bool IsRoot();
+		void PushMatrix();
+		void PopMatrix();
+
 
 		virtual void CallbackMouseMove(Vector2 pos);
 		virtual void CallbackMouseEnter();

@@ -105,8 +105,8 @@ namespace WeNeedMetal {
 		vec3<T> operator*(const T &value) const
 		{
 			return vec3<T>(
-				x * value
-				y * value
+				x * value,
+				y * value,
 				z * value);
 		}
 
