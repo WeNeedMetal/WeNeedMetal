@@ -3,9 +3,11 @@
 using namespace WeNeedMetal;
 using namespace WeNeedMetal::gui;
 
-Controll::Controll(Vector2 size, weak_ptr<Controll> parent)
-	: size(size) , parent(parent)
-{ }
+Controll::Controll(Vector2i size, weak_ptr<Controll> parent)
+	: parent(parent)
+{
+	ChangeSize(size);
+}
 
 void Controll::SetParent(weak_ptr<Controll> ctrl) {
     parent = ctrl;
@@ -19,11 +21,11 @@ bool Controll::IsRoot() {
 	return parent.expired();
 }
 
-void PushMatrix() {
-	GL::
+void Controll::ApplyMatrix() {
+	GL::MultMatrix(position);
 }
 
-void Controll::CallbackMouseMove(Vector2 pos) { }
+void Controll::CallbackMouseMove(Vector2i pos) { }
 void Controll::CallbackMouseEnter() { }
 void Controll::CallbackMouseLeave() { }
 void Controll::CallbackKeyPress(Keyboard key) { }
@@ -34,12 +36,12 @@ void Controll::CallbackMousePress(Mouse mouse) { }
 void Controll::CallbackMouseRelease(Mouse mouse) { }
 void Controll::CallbackWheel(double wheel) { }
 
-void Controll::ChangeSize(Vector2 size) {
+void Controll::ChangeSize(Vector2i size) {
 	this->size = size;
-	cout << size.x << ',' << size.y << endl;
+	position = Matrix4::FromTranslate(-1.0, 1.0, 0.0) * Matrix4::FromScale(2.0 / size.x, -2.0 / size.y , 1.0);
 }
 
-Vector2 Controll::GetSize() {
+Vector2i Controll::GetSize() {
 	return size;
 }
 

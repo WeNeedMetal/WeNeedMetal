@@ -19,6 +19,7 @@ void GameControll::CallbackMouseLeave() {
 }
 
 void GameControll::CallbackKeyPress(Keyboard key) {
+
 }
 
 
@@ -36,6 +37,8 @@ void GameControll::CallbackWheel(double wheel) {
 
 void GameControll::Rendering() {
 	auto size = GetSize();
+	ApplyMatrix();
+	GL::PushMatrix();
 	glBegin(GL_QUADS);
 		glColor3ub(0xFF, 0, 0);
 		glVertex2d(0, size.y);
@@ -46,4 +49,5 @@ void GameControll::Rendering() {
 		glColor3ub(0xFF, 0xFF, 0xFF);
 		glVertex2d(0, 0);
 	glEnd();
+	GL::PopMatrix();
 }

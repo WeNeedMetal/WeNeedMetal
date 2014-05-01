@@ -14,21 +14,20 @@ namespace WeNeedMetal { namespace gui
     class Controll
     {
 	private:
-		Vector2 size;
+		Vector2i size;
         weak_ptr<Controll> parent;
-		Matirx4 position, desition;
+		Matrix4 position;
 
 	public:
-		Controll(Vector2 size, weak_ptr<Controll> parent = weak_ptr<Controll>());
+		Controll(Vector2i size, weak_ptr<Controll> parent = weak_ptr<Controll>());
 
         void SetParent(weak_ptr<Controll> ctrl);
         weak_ptr<Controll> GetParent();
 		bool IsRoot();
-		void PushMatrix();
-		void PopMatrix();
+		void ApplyMatrix();
 
 
-		virtual void CallbackMouseMove(Vector2 pos);
+		virtual void CallbackMouseMove(Vector2i pos);
 		virtual void CallbackMouseEnter();
 		virtual void CallbackMouseLeave();
 		virtual void CallbackKeyPress(Keyboard key);
@@ -39,8 +38,8 @@ namespace WeNeedMetal { namespace gui
 		virtual void CallbackMouseRelease(Mouse mouse);
 		virtual void CallbackWheel(double wheel);
 
-		virtual void ChangeSize(Vector2 size);
-		Vector2 GetSize();
+		virtual void ChangeSize(Vector2i size);
+		Vector2i GetSize();
 
 		virtual void Rendering();
     };

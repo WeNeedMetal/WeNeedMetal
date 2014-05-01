@@ -1,7 +1,9 @@
 #ifndef _HPP_WNM_GLH_
 #define _HPP_WNM_GLH_
 
+#include <Windows.h>
 #include <GL/gl.h>
+#include <GL/glu.h>
 
 #include "matrix.hpp"
 
@@ -31,8 +33,21 @@ namespace WeNeedMetal {
 			glScalef(x, y, z);
 		}
 
-		inline void LoadMatrix(mat4<double> matrix) {
+		inline void LoadMatrix(Matrix4 matrix) {
 			glLoadMatrixd(matrix.Ptr());
+		}
+
+		inline void MultMatrix(Matrix4 matrix) {
+			double* mat = matrix.Ptr();
+			glMultMatrixd(mat);
+		}
+
+		inline void PushMatrix() {
+			glPushMatrix();
+		}
+
+		inline void PopMatrix() {
+			glPopMatrix();
 		}
 	};
 }
